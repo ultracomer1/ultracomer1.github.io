@@ -1,0 +1,159 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Rojin M S – Maker Portfolio</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@600;800&family=IBM+Plex+Mono:wght@400;500&family=Inter:wght@400;500&display=swap">
+<style>
+:root{
+  --bg:#fbfaf7;--surface:#ffffff;--ink:#16181d;--muted:#555a64;--line:#dedbd3;--accent:#c2410c;--accent-ink:#ffffff;
+  --live-bg:#dcf5e4;--live-ink:#14532d;--beta-bg:#fdefc7;--beta-ink:#713f12;--arch-bg:#e8e8e6;--arch-ink:#3f3f46;
+  --display:'Bricolage Grotesque',Arial,sans-serif;--body:'Inter',Arial,sans-serif;--mono:'IBM Plex Mono',Consolas,monospace;
+  box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px);
+}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){
+    --bg:#121316;--surface:#1b1d22;--ink:#f2f1ee;--muted:#a8abb3;--line:#2e3138;--accent:#ff8a5c;--accent-ink:#121316;
+    --live-bg:#12301f;--live-ink:#8be0a9;--beta-bg:#3a2d0a;--beta-ink:#f6d37a;--arch-bg:#26272b;--arch-ink:#b4b4bb;
+    color-scheme:dark;
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#121316;--surface:#1b1d22;--ink:#f2f1ee;--muted:#a8abb3;--line:#2e3138;--accent:#ff8a5c;--accent-ink:#121316;
+  --live-bg:#12301f;--live-ink:#8be0a9;--beta-bg:#3a2d0a;--beta-ink:#f6d37a;--arch-bg:#26272b;--arch-ink:#b4b4bb;
+  color-scheme:dark;
+}
+html{scroll-padding-top:env(safe-area-inset-top,0px);scroll-behavior:smooth}
+*,*::before,*::after{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--body);font-size:18px;line-height:1.6}
+a{color:var(--accent)}
+a:hover{text-decoration-thickness:3px}
+:focus-visible{outline:3px solid var(--accent);outline-offset:3px;border-radius:4px}
+.wrap{max-width:1040px;margin:0 auto;padding:0 24px}
+.skip{position:absolute;left:-999px;top:8px;background:var(--accent);color:var(--accent-ink);padding:10px 16px;border-radius:6px;z-index:5}
+.skip:focus{left:8px}
+.eyebrow{font-family:var(--mono);font-size:14px;letter-spacing:.04em;text-transform:uppercase;color:var(--muted);margin:0 0 12px}
+h1,h2,h3{font-family:var(--display);line-height:1.1;margin:0}
+h1{font-size:clamp(44px,9vw,92px);font-weight:800;letter-spacing:-.02em}
+h2{font-size:clamp(30px,5vw,44px);font-weight:800;letter-spacing:-.01em;margin-bottom:28px}
+h3{font-size:24px;font-weight:600}
+section{padding:72px 0;border-top:1px solid var(--line)}
+.hero{padding:72px 0 64px;border-top:0}
+.tag{font-size:clamp(20px,3vw,28px);max-width:640px;margin:20px 0 28px}
+.status{display:inline-flex;align-items:center;gap:10px;font-family:var(--mono);font-size:15px;background:var(--surface);border:1px solid var(--line);padding:10px 16px;border-radius:999px}
+.pulse{width:10px;height:10px;border-radius:50%;background:var(--accent);animation:pulse 2s infinite}
+@keyframes pulse{50%{opacity:.35}}
+@media (prefers-reduced-motion:reduce){.pulse{animation:none}html{scroll-behavior:auto}}
+.cta{display:flex;flex-wrap:wrap;gap:12px;margin-top:28px}
+.btn{display:inline-block;padding:14px 24px;border-radius:8px;font-weight:500;text-decoration:none;min-height:48px}
+.btn.primary{background:var(--accent);color:var(--accent-ink)}
+.btn.ghost{border:2px solid var(--ink);color:var(--ink)}
+.grid{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:20px}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:24px;display:flex;flex-direction:column;gap:14px;height:100%}
+.card p{margin:0;color:var(--muted)}
+.metric{font-family:var(--mono);font-size:15px;margin-top:auto;padding-top:14px;border-top:1px dashed var(--line)}
+.badge{align-self:flex-start;font-family:var(--mono);font-size:13px;font-weight:500;padding:4px 12px;border-radius:999px;display:inline-flex;align-items:center;gap:8px;text-transform:uppercase;letter-spacing:.04em}
+.badge i{display:inline-block;width:9px;height:9px}
+.live{background:var(--live-bg);color:var(--live-ink)}
+.live i{border-radius:50%;background:currentColor}
+.beta{background:var(--beta-bg);color:var(--beta-ink);border:1px solid currentColor}
+.beta i{border:2px solid currentColor;border-radius:50%}
+.archived{background:var(--arch-bg);color:var(--arch-ink);border:1px dashed currentColor}
+.archived i{background:currentColor;transform:rotate(45deg)}
+.note{color:var(--muted);font-size:15px;margin-top:20px}
+.prose{max-width:680px}
+.prose p{margin:0 0 18px}
+.now{background:var(--surface);border:1px solid var(--line);border-left:6px solid var(--accent);border-radius:12px;padding:24px;max-width:680px}
+.now p{margin:0 0 12px}.now p:last-child{margin:0}
+footer{border-top:1px solid var(--line);padding:56px 0 64px}
+footer ul{list-style:none;margin:24px 0 0;padding:0;display:flex;flex-wrap:wrap;gap:16px 32px;font-family:var(--mono);font-size:16px}
+</style>
+</head>
+<body>
+<a class="skip" href="#shipped">Skip to shipped work</a>
+
+<header class="hero">
+  <div class="wrap">
+    <p class="eyebrow">Rojin M S · Thiruvananthapuram</p>
+    <h1>I break things on purpose, so they stay safe.</h1>
+    <p class="tag">Cyber security student learning penetration testing and network security by doing the work, one lab at a time.</p>
+    <p class="status" role="status"><span class="pulse" aria-hidden="true"></span>Currently building: hands-on pentest and network security skills</p>
+    <div class="cta">
+      <a class="btn primary" href="mailto:rojiroji237@gmail.com">Email me</a>
+      <a class="btn ghost" href="#shipped">See what I ship</a>
+    </div>
+  </div>
+</header>
+
+<main>
+  <section id="shipped" aria-labelledby="shipped-h">
+    <div class="wrap">
+      <p class="eyebrow">01 / Work</p>
+      <h2 id="shipped-h">Things I have shipped</h2>
+      <ul class="grid">
+        <li>
+          <article class="card">
+            <span class="badge live"><i aria-hidden="true"></i>Live</span>
+            <h3>[Product name]</h3>
+            <p>[One honest line on what it does and who it is for.]</p>
+            <div class="metric">[Users, revenue or findings, if any]</div>
+          </article>
+        </li>
+        <li>
+          <article class="card">
+            <span class="badge beta"><i aria-hidden="true"></i>Beta</span>
+            <h3>[Lab, CTF or tool]</h3>
+            <p>[What you built or broke, and what you learned.]</p>
+            <div class="metric">[Result, rank or write-up link]</div>
+          </article>
+        </li>
+        <li>
+          <article class="card">
+            <span class="badge archived"><i aria-hidden="true"></i>Archived</span>
+            <h3>[Mobile or network project]</h3>
+            <p>[Why you built it and why you stopped.]</p>
+            <div class="metric">[Metric, if any]</div>
+          </article>
+        </li>
+      </ul>
+      <p class="note">These cards are empty slots. I have not listed any shipped products yet, so each one is a placeholder to swap for real work, status included.</p>
+    </div>
+  </section>
+
+  <section aria-labelledby="story-h">
+    <div class="wrap prose">
+      <p class="eyebrow">02 / Story</p>
+      <h2 id="story-h">Why I build</h2>
+      <p>I finished higher secondary in 2024, studied mobile engineering in 2025, and moved into cyber security in 2026.</p>
+      <p>Building apps showed me how much trust people put in software. Security is how I earn that trust, so I want to learn how systems fail and help protect the data inside them.</p>
+    </div>
+  </section>
+
+  <section aria-labelledby="now-h">
+    <div class="wrap">
+      <p class="eyebrow">03 / Now</p>
+      <h2 id="now-h">What I am working on now</h2>
+      <div class="now">
+        <p>Studying cyber security and practising penetration testing and network security.</p>
+        <p>Next up: <strong>[your next project]</strong>, something small enough to ship and write up here.</p>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <p class="eyebrow">04 / Contact</p>
+    <h2>Let’s talk security.</h2>
+    <ul>
+      <li><a href="mailto:rojiroji237@gmail.com">rojiroji237@gmail.com</a></li>
+      <li><a href="tel:+919746952755">9746952755</a></li>
+      <li>Thiruvananthapuram, India</li>
+    </ul>
+  </div>
+</footer>
+</body>
+</html>
